@@ -1,0 +1,23 @@
+:root {
+  --bg_color: #000;
+  --color_secondary: grey;
+  --color_orange: #eec84e;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg_color);
+  overflow: hidden;
+}
+
+
+.container {
+  height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
