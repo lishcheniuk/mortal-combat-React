@@ -1,7 +1,15 @@
 import React from 'react'
 import classes from './secondScreen.module.css';
 
-export default function VersusCodesModal({ code }) {
+function VersusCodesModal(_props, ref) {
+    const [code, setCode] = React.useState(null);
+
+    React.useImperativeHandle(
+        ref,
+        () => ({
+            code, setCode
+        }), [code]);
+
     if (!code) return null;
 
     return (
@@ -11,3 +19,4 @@ export default function VersusCodesModal({ code }) {
         </div>
     )
 }
+export default React.forwardRef(VersusCodesModal);

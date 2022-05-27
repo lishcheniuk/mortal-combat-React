@@ -1,12 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { varsusCodesIcons } from '../../consts';
 import classes from './secondScreen.module.css'
 import VersusCodesItem from './VersusCodesItem';
+import VersusCodesModal from './VersusCodesModal';
 
 const AVAILABLE_KEYS = Array.from('QWERTY');
 
-function VersusCodes(props) {
-    const [winningCode, setWinningCode] = useState(null);
+function VersusCodes() {
+    const codesModalRef = useRef();
     const [selectedIcons, setSelectedIcons] = useState(
         AVAILABLE_KEYS.map(key => ({ id: key, iconIndex: 0 })
         ));
@@ -32,15 +33,14 @@ function VersusCodes(props) {
     }, [keyDownHandler]);
 
     useEffect(() => {
-
         const codes = ['311111', '321111'];
         const newCode = selectedIcons.map((item) => varsusCodesIcons[item.iconIndex].id).join('');
         if (codes.includes(newCode)) {
-            setWinningCode(newCode);
-        } else if (winningCode) {
-            setWinningCode(null);
+            codesModalRef.current.setCode(newCode);
+        } else if (codesModalRef.current.code) {
+            codesModalRef.current.setCode(null);
         }
-    }, [selectedIcons, winningCode]);
+    }, [selectedIcons]);
 
     return (
         <>
@@ -51,11 +51,10 @@ function VersusCodes(props) {
                         icon={varsusCodesIcons[selectedIcons[index].iconIndex]}
                     />
                 ))}
-
             </div>
-            {props.children({ code: winningCode })}
+            <VersusCodesModal ref={codesModalRef} />
         </>
     )
 }
 
-export default React.memo(VersusCodes, (prev, next) => prev.children !== next.children);
+export default React.memo(VersusCodes);
