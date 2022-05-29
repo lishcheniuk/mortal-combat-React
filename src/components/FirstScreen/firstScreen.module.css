@@ -21,7 +21,6 @@
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     overflow: hidden;
 }
 
@@ -34,14 +33,17 @@
 
 .first-screen__character {
     --color: red;
-    --size: calc(100% / 3 - 40px / 3);
-    width: var(--size);
-    height: var(--size);
+    width: calc(100% / 4);
+        height: calc(100% / 3);
     background-color: var(--color_orange);
     border: 10px solid var(--color_secondary);
     position: relative;
 }
 
+.first-screen__character img {
+    object-fit: cover;
+    object-position: center;
+}
 .first-screen__character.active {
     animation: blinking 1s ease-out infinite;
     color: var(--color);

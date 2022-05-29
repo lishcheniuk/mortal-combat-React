@@ -34,7 +34,7 @@ img {
     width: 300px;
     height: 300px;
     background: url(/public/images/mortal_kombat_dragon.png) center/contain no-repeat;
-    filter: blur(2px) drop-shadow(-30px 0px 50px #fff);
+    filter: drop-shadow(-30px 0px 30px #fff) drop-shadow(-30px 0px 80px #fff);
 }
 
 .second-screen__logo.left {

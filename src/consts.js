@@ -1,13 +1,16 @@
 export const characters = [
-    { id: 1, img: 'Cage_versus.png', imgFull: 'Hjyh.png' },
-    { id: 2, img: 'Kano_tower.png', imgFull: 'Kano_nekro.png' },
-    { id: 3, img: 'Kit_UMK3_ver.png', imgFull: 'Kit_MKG_ren.png' },
-    { id: 4, img: 'Liu_MK2_bio.jpg', imgFull: 'Liu_kang.jpg' },
-    { id: 5, img: 'Noob_tower.png', imgFull: 'Noob_ren_MKA.png' },
-    { id: 6, img: 'Raiden_tower.png', imgFull: 'Raiden_mk4.png' },
-    { id: 7, img: 'Rev_Reiko_ver_MKA.png', imgFull: 'Rei_MKA.png' },
-    { id: 8, img: 'Scorp_tower.png', imgFull: 'Scorp_nekro.png' },
-    { id: 9, img: 'Shang_ladder_Calm1.png', imgFull: 'ST_nekropolis.png' }
+    { id: 1, img: 'character1.jpg', imgFull: 'mkt-character15.png' },
+    { id: 2, img: 'character2.jpg', imgFull: 'mkt-character05.png' },
+    { id: 3, img: 'character3.jpg', imgFull: 'mkt-character29.png' },
+    { id: 4, img: 'character4.jpg', imgFull: 'mkt-character20.png' },
+    { id: 5, img: 'character5.jpg', imgFull: 'mkt-character25.png' },
+    { id: 6, img: 'character6.jpg', imgFull: 'mkt-character28.png' },
+    { id: 7, img: 'character7.jpg', imgFull: 'mkt-character19.png' },
+    { id: 8, img: 'character8.jpg', imgFull: 'mkt-character03.png' },
+    { id: 9, img: 'character9.jpg', imgFull: 'mkt-character23.png' },
+    { id: 10, img: 'character10.jpg', imgFull: 'mkt-character32.png' },
+    { id: 11, img: 'character11.jpg', imgFull: 'mkt-character22.png' },
+    { id: 12, img: 'character12.jpg', imgFull: 'raiden.png' },
 ]
 
 export const varsusCodesIcons = [
