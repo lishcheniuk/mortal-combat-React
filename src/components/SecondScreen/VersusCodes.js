@@ -7,10 +7,10 @@ import VersusCodesModal from './VersusCodesModal';
 const AVAILABLE_KEYS = Array.from('QWERTY');
 
 function VersusCodes() {
-    const codesModalRef = useRef();
     const [selectedIcons, setSelectedIcons] = useState(
         AVAILABLE_KEYS.map(key => ({ id: key, iconIndex: 0 })
         ));
+    const codesModalRef = useRef();
 
     const keyDownHandler = useCallback((e) => {
         const key = e.key.toUpperCase();
@@ -33,13 +33,8 @@ function VersusCodes() {
     }, [keyDownHandler]);
 
     useEffect(() => {
-        const codes = ['311111', '321111'];
-        const newCode = selectedIcons.map((item) => varsusCodesIcons[item.iconIndex].id).join('');
-        if (codes.includes(newCode)) {
-            codesModalRef.current.setCode(newCode);
-        } else if (codesModalRef.current.code) {
-            codesModalRef.current.setCode(null);
-        }
+        //проверяем ячейки на совпадение выиграшной комбинации
+        codesModalRef.current.checkCode(selectedIcons);
     }, [selectedIcons]);
 
     return (
