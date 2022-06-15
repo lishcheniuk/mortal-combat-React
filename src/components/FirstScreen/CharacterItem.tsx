@@ -1,7 +1,15 @@
 import React from 'react';
 import classes from "./firstScreen.module.css";
 
-export default function CharacterItem({ imgUrl, isActivePlayer1, isActivePlayer2, isSelectedPlayer1, isSelectedPlayer2 }) {
+interface CharacterItemProps {
+    imgUrl: string
+    isActivePlayer1: boolean
+    isActivePlayer2: boolean
+    isSelectedPlayer1: boolean
+    isSelectedPlayer2: boolean
+}
+
+export default function CharacterItem({ imgUrl, isActivePlayer1, isActivePlayer2, isSelectedPlayer1, isSelectedPlayer2 }: CharacterItemProps) {
     const characterItemClasses = [
         classes['first-screen__character'],
         (isActivePlayer1 && !isSelectedPlayer1) || (isActivePlayer2 && !isSelectedPlayer2 && isSelectedPlayer1) ? classes.active : '',
@@ -16,6 +24,7 @@ export default function CharacterItem({ imgUrl, isActivePlayer1, isActivePlayer2
     return (
         <div
             className={characterItemClasses}
+            //@ts-ignore
             style={{ '--color': (isActivePlayer1 && !isActivePlayer2) || (isActivePlayer2 && !isSelectedPlayer1) ? 'red' : '#00ff04' }}
         >
             <img src={`images/${imgUrl}`} alt="Character" />

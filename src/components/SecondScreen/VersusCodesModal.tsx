@@ -1,14 +1,21 @@
 import React from 'react'
 import { varsusCodesIcons } from '../../consts';
 import classes from './secondScreen.module.css';
+import { ICodeCell } from './VersusCodes';
 
 const winningCodes = ['311111', '321111', '112111'];
 
-function VersusCodesModal(_props, ref) {
-    const [code, setCode] = React.useState(null);
+interface IImperativeHandlers {
+    checkCode: (icons: ICodeCell[]) => void
+}
+
+interface IVersusCodesModalProps { }
+
+const VersusCodesModal: React.ForwardRefRenderFunction<IImperativeHandlers, IVersusCodesModalProps> = (_props, ref) => {
+    const [code, setCode] = React.useState<string | null>(null);
     const winnerSound = React.useRef(new Audio('/sounds/9a8481d2760b50a.mp3'));
 
-    const checkCode = React.useCallback((selectedIcons) => {
+    const checkCode = React.useCallback((selectedIcons: ICodeCell[]) => {
         const newCode = selectedIcons.map((item) => varsusCodesIcons[item.iconIndex].id).join('');
         if (winningCodes.includes(newCode)) {
             setCode(newCode);

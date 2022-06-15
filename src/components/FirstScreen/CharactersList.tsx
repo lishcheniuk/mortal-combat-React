@@ -1,15 +1,19 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { characters } from '../../consts';
-import { RootContext } from '../../context/rootContext';
+import { characters, ICharacter } from '../../consts';
+import { IPlayers, IRootContext, RootContext } from '../../context/rootContext';
 import CharacterItem from './CharacterItem';
 
-function CharactersList(props) {
+interface CharactersListProps {
+    children: (players: IPlayers) => void
+}
+
+const CharactersList: React.FC<CharactersListProps> = (props) => {
     const COUNT_COLUMN = 4;
-    const { selectPlayer, setActiveScreen } = useContext(RootContext);
+    const { selectPlayer, setActiveScreen } = useContext<IRootContext>(RootContext);
     const [player1, setPlayer1] = useState({ idx: 0, isSelected: false });
     const [player2, setPlayer2] = useState({ idx: 1, isSelected: false });
 
-    const selectCharacter = useCallback((item) => {
+    const selectCharacter = useCallback((item: ICharacter) => {
         if (player2.isSelected) return;
         let playerNumber = 1;
         if (player1.isSelected) {
@@ -21,7 +25,7 @@ function CharactersList(props) {
         selectPlayer(item, playerNumber);
     }, [player1, player2, selectPlayer]);
 
-    const keyPressHandler = useCallback((e) => {
+    const keyPressHandler = useCallback((e: KeyboardEvent) => {
         if (player2.isSelected) return;
         let index = !player1.isSelected ? player1.idx : player2.idx;
 
@@ -59,7 +63,7 @@ function CharactersList(props) {
     }, [keyPressHandler]);
 
     useEffect(() => {
-        let timer = null;
+        let timer: ReturnType<typeof setTimeout>;
         if (player1.isSelected && player2.isSelected) {
             timer = setTimeout(() => {
                 setActiveScreen(1);

@@ -1,4 +1,16 @@
-export const characters = [
+export interface ICharacter {
+    id: number
+    img: string
+    imgFull: string
+}
+
+export interface IVersusCode {
+    id: number
+    slug: string
+    position: string
+}
+
+export const characters: ICharacter[] = [
     { id: 1, img: 'character1.jpg', imgFull: 'mkt-character15.png' },
     { id: 2, img: 'character2.jpg', imgFull: 'mkt-character05.png' },
     { id: 3, img: 'character3.jpg', imgFull: 'mkt-character29.png' },
@@ -13,7 +25,7 @@ export const characters = [
     { id: 12, img: 'character12.jpg', imgFull: 'raiden.png' },
 ]
 
-export const varsusCodesIcons = [
+export const varsusCodesIcons: IVersusCode[] = [
     { id: 1, slug: 'icon1', position: '-474px -155px' },
     { id: 2, slug: 'icon2', position: '-554px -155px' },
     { id: 3, slug: 'icon3', position: '-632px -155px' },

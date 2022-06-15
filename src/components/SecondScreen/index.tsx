@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react'
-import { RootContext } from '../../context/rootContext'
+import { IRootContext, RootContext } from '../../context/rootContext'
 import SelectedCharacters from '../SelectedCharacters';
 import classes from './secondScreen.module.css'
 import VersusCodes from './VersusCodes';
 
 export default function SecondScreen() {
-    const { selectedPlayers, setActiveScreen } = useContext(RootContext);
+    const { selectedPlayers, setActiveScreen } = useContext<IRootContext>(RootContext);
 
     useEffect(() => {
         const timer = setTimeout(() => setActiveScreen(0), 4000);

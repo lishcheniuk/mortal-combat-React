@@ -6,13 +6,18 @@ import VersusCodesModal from './VersusCodesModal';
 
 const AVAILABLE_KEYS = Array.from('QWERTY');
 
-function VersusCodes() {
-    const [selectedIcons, setSelectedIcons] = useState(
-        AVAILABLE_KEYS.map(key => ({ id: key, iconIndex: 0 })
-        ));
-    const codesModalRef = useRef();
+export interface ICodeCell {
+    id: string;
+    iconIndex: number;
+}
 
-    const keyDownHandler = useCallback((e) => {
+function VersusCodes() {
+    const [selectedIcons, setSelectedIcons] = useState<ICodeCell[]>(
+        AVAILABLE_KEYS.map((key) => ({ id: key, iconIndex: 0 })
+        ));
+    const codesModalRef = useRef<React.ElementRef<typeof VersusCodesModal>>(null);
+
+    const keyDownHandler = useCallback((e: KeyboardEvent) => {
         const key = e.key.toUpperCase();
         if (!AVAILABLE_KEYS.includes(key)) return;
 
@@ -34,7 +39,7 @@ function VersusCodes() {
 
     useEffect(() => {
         //проверяем ячейки на совпадение выиграшной комбинации
-        codesModalRef.current.checkCode(selectedIcons);
+        codesModalRef.current?.checkCode(selectedIcons);
     }, [selectedIcons]);
 
     return (

@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import FirstScreen from "./components/FirstScreen";
 import SecondScreen from "./components/SecondScreen";
-import { RootContext } from "./context/rootContext";
+import { RootContext, IRootContext } from "./context/rootContext";
 
-function App() {
-  const { activeScreen } = useContext(RootContext);
+const App: React.FC = () => {
+  const { activeScreen } = useContext<IRootContext>(RootContext);
   const screens = [<FirstScreen />, <SecondScreen />];
 
   return (

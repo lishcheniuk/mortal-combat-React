@@ -2,6 +2,7 @@ import React from 'react'
 import CharactersList from './CharactersList';
 import SelectedCharacters from '../SelectedCharacters';
 import classes from "./firstScreen.module.css";
+import { IPlayers } from '../../context/rootContext';
 
 export default function FirstScreen() {
     return (
@@ -10,7 +11,7 @@ export default function FirstScreen() {
                 <h2 className={classes['first-screen__title']}>Select your fighter</h2>
                 <div className={classes['first-screen__main']}>
                     <CharactersList>
-                        {(players) => (
+                        {(players: IPlayers) => (
                             <SelectedCharacters
                                 playerClasses={{
                                     left: classes['first-screen__player-1'],

@@ -1,7 +1,8 @@
 import React from 'react'
+import { IVersusCode } from '../../consts';
 import classes from './secondScreen.module.css'
 
-export default function VersusCodesItem({ icon }) {
+const VersusCodesItem: React.FC<{ icon: IVersusCode }> = ({ icon }) => {
 
     return (
         <div className={classes['versus-codes__item']}
@@ -9,3 +10,5 @@ export default function VersusCodesItem({ icon }) {
         ></div>
     )
 }
+
+export default VersusCodesItem;
