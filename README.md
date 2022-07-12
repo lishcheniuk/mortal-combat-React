@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Стартовые экраны игры "Mortal Combat". Демо: [https://mortal-combat-ba031.web.app/](https://mortal-combat-ba031.web.app/).
 
 ## Available Scripts
 
